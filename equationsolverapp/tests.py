@@ -35,7 +35,7 @@ class CalculatorTests(TestCase):
 
         self.assertEqual("4x-3x = 6-2", calculator.get_equation_string())
 
-        self.assertTrue(Variable("1x").__eq__(calculator.add_unknowns()))
+        self.assertTrue(Variable("1x").__eq__(calculator.sum_unknowns()))
         self.assertEqual("1x = 6-2", calculator.get_equation_string())
 
         self.assertTrue(Variable("4").__eq__(calculator.add_numbers()))
@@ -55,7 +55,7 @@ class CalculatorTests(TestCase):
 
         self.assertEqual("4x-2x = 6-2", calculator.get_equation_string())
 
-        self.assertTrue(Variable("2x").__eq__(calculator.add_unknowns()))
+        self.assertTrue(Variable("2x").__eq__(calculator.sum_unknowns()))
         self.assertEqual("2x = 6-2", calculator.get_equation_string())
 
         self.assertTrue(Variable("4").__eq__(calculator.add_numbers()))
@@ -75,7 +75,7 @@ class CalculatorTests(TestCase):
 
         self.assertEqual("4x-1x = 6-2", calculator.get_equation_string())
 
-        self.assertTrue(Variable("3x").__eq__(calculator.add_unknowns()))
+        self.assertTrue(Variable("3x").__eq__(calculator.sum_unknowns()))
         self.assertEqual("3x = 6-2", calculator.get_equation_string())
 
         self.assertTrue(Variable("4").__eq__(calculator.add_numbers()))

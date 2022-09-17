@@ -13,18 +13,26 @@ class Calculator:
         self.unkwowns = self.left_expression.get_unknowns().union(self.right_expression.get_unknowns())
 
     def move_unknowns_to_left_expression(self):
+        variables_moved = list()
         for var in self.right_expression.get_variables_with_unknowns():
             var.sign = var.sign * -1
+            variables_moved.append(var)
             self.left_expression.variables.append(var)
             self.right_expression.variables.remove(var)
 
+        return variables_moved
+
     def move_numbers_to_right_expression(self):
+        variables_moved = list()
         for number in self.left_expression.get_variables_without_unknowns():
             number.sign = number.sign * -1
+            variables_moved.append(number)
             self.right_expression.variables.append(number)
             self.left_expression.variables.remove(number)
 
-    def add_unknowns(self) -> Variable:
+        return variables_moved
+
+    def sum_unknowns(self) -> Variable:
         sum = 0
         for var in self.left_expression.get_variables_with_unknowns():
             sum += int(var.get_actual_number())

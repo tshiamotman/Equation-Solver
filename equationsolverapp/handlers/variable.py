@@ -18,6 +18,11 @@ class Variable:
 
         return self.number == __o.number and  self.unknown == __o.unknown and self.sign == __o.sign
 
+    def __str__(self) -> str:
+        text = str(self.number) if self.number is not 1 else ""
+        text += "" if self.unknown == None else self.unknown
+        return text
+
     def has_unknown(self) -> bool:
         return self.unknown != None
 
